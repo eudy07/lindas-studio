@@ -15,8 +15,7 @@
     --primary: #ff2d8f;
     --primary-dark: #d81b75;
     --primary-gradient: linear-gradient(135deg, #ff53b0 0%, #ff2d8f 50%, #7b00ff 100%);
-    --gold-gradient: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
-    --hair-gradient: linear-gradient(135deg, #ff007f 0%, #9013fe 50%, #4a00e0 100%);
+    --hair-gradient: linear-gradient(135deg, #ff2d8f 0%, #9013fe 100%);
     --bg-color: #fff2f8;
     --card-bg: #ffffff;
 }
@@ -43,7 +42,7 @@ body::before, body::after {
     width: 420px;
     height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 45, 143, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, rgba(255, 45, 143, 0.18) 0%, rgba(255, 255, 255, 0) 70%);
     z-index: -1;
     animation: floatBg 12s infinite alternate ease-in-out;
 }
@@ -55,7 +54,7 @@ body::after { bottom: 5%; right: -80px; animation-delay: -6s; }
     100% { transform: translate(90px, 90px) scale(1.3); }
 }
 
-/* HEADER PREMIUM CON ILUMINACIÓN */
+/* HEADER PREMIUM CON CURVA */
 header{
     position: relative;
     background: var(--primary-gradient);
@@ -63,35 +62,29 @@ header{
     text-align: center;
     padding: 90px 20px 140px 20px;
     clip-path: ellipse(160% 100% at 50% 0%);
-    box-shadow: 0 20px 40px rgba(255, 45, 143, 0.4);
+    box-shadow: 0 20px 40px rgba(255, 45, 143, 0.35);
 }
 
 .header-badge {
     display: inline-block;
-    background: linear-gradient(90deg, #fff275, #ff89b5);
-    color: #5d0038;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
     padding: 8px 26px;
     border-radius: 30px;
     font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 2.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 16px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    animation: pulseBadge 2s infinite alternate;
-}
-
-@keyframes pulseBadge {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.06); }
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 header h1{
     font-family: 'Playfair Display', serif;
     font-size: 66px;
     font-weight: 800;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    letter-spacing: 1px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 header p{
@@ -99,10 +92,9 @@ header p{
     font-size: 21px;
     font-weight: 300;
     opacity: 0.98;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* MENÚ FLOATING */
+/* MENÚ FLOATING Y GLASSMORPHISM */
 nav{
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(15px);
@@ -166,7 +158,7 @@ h2{
     position: relative;
 }
 
-/* SERVICIOS */
+/* SERVICIOS CON TARJETAS CENTRADAS */
 .tarjetas{
     display: flex;
     flex-wrap: wrap;
@@ -184,7 +176,6 @@ h2{
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     flex: 1 1 220px;
     max-width: 320px;
-    position: relative;
 }
 
 .tarjeta:hover{
@@ -193,25 +184,14 @@ h2{
     border-color: var(--primary);
 }
 
-/* TARJETA DESTACADA PELUQUERÍA */
-.tarjeta.destacada {
-    background: linear-gradient(145deg, #ffffff 0%, #fff0f7 100%);
-    border: 2px solid #ff2d8f;
-    box-shadow: 0 12px 35px rgba(144, 19, 254, 0.2);
+.tarjeta.peluqueria-card {
+    background: linear-gradient(145deg, #ffffff 0%, #fbf0ff 100%);
+    border: 1.5px solid #b34bfb;
+    box-shadow: 0 10px 30px rgba(144, 19, 254, 0.12);
 }
 
-.tarjeta.destacada::before {
-    content: '★ VIP ⭐';
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: var(--hair-gradient);
-    color: white;
-    font-size: 10px;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+.tarjeta.peluqueria-card h3 {
+    color: #8a13fe;
 }
 
 .tarjeta h3{ color: var(--primary); margin-bottom: 10px; font-size: 21px; }
@@ -261,20 +241,16 @@ h2{
     margin-bottom: 25px;
 }
 
-/* CATEGORÍA PELUQUERÍA DESTACADA */
-.categoria.peluqueria-destacada {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 220, 255, 0.6) 100%);
-    border: 2px solid #b34bfb;
-    box-shadow: 0 15px 40px rgba(144, 19, 254, 0.18);
+.categoria.peluqueria-seccion {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 230, 255, 0.6) 100%);
+    border: 1.5px solid #c263ff;
+    box-shadow: 0 15px 35px rgba(144, 19, 254, 0.12);
 }
 
-.categoria.peluqueria-destacada h3 {
-    background: var(--hair-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 28px;
+.categoria.peluqueria-seccion h3 {
+    color: #8a13fe;
+    font-size: 26px;
     font-weight: 800;
-    letter-spacing: 0.5px;
 }
 
 .lista-precios{
@@ -320,14 +296,13 @@ h2{
     box-shadow: 0 18px 36px rgba(255, 45, 143, 0.45);
 }
 
-/* PRECIOS DE PELUQUERÍA CON ESTILO MORADO Y VIP */
 .precio.hair-card {
     background: var(--hair-gradient);
-    box-shadow: 0 10px 22px rgba(123, 0, 255, 0.35);
+    box-shadow: 0 10px 22px rgba(123, 0, 255, 0.3);
 }
 
 .precio.hair-card:hover {
-    box-shadow: 0 18px 38px rgba(123, 0, 255, 0.55);
+    box-shadow: 0 18px 38px rgba(123, 0, 255, 0.5);
 }
 
 .precio.hair-card .cantidad {
@@ -457,9 +432,9 @@ footer{
 </a>
 
 <header>
-    <span class="header-badge">✨ Estética Premium & Peluquería</span>
+    <span class="header-badge">Estética & Peluquería Femenina</span>
     <h1>💅 Lindas Studio</h1>
-    <p>Especialistas en la salud y belleza de tus uñas y tu cabello.</p>
+    <p>Especialistas en la salud y belleza de tus uñas y cabello.</p>
 </header>
 
 <nav>
@@ -489,9 +464,9 @@ footer{
             <h3>🎨 Nail Art</h3>
             <p>Mano alzada, cristales, degradados y diseños personalizados.</p>
         </div>
-        <div class="tarjeta destacada">
+        <div class="tarjeta peluqueria-card">
             <h3>💇‍♀️ Peluquería Femenina</h3>
-            <p>Cortes, peinados, alisados, tintes y lavado profesional exclusivo para mujer.</p>
+            <p>Cortes, peinados, alisados, tintes y cuidado capilar completo para mujer.</p>
         </div>
     </div>
 </section>
@@ -612,7 +587,7 @@ footer{
         </div>
     </div>
 
-    <div class="categoria peluqueria-destacada">
+    <div class="categoria peluqueria-seccion">
         <h3>💇‍♀️ PELUQUERÍA PARA MUJERES</h3>
         <div class="lista-precios">
             <div class="precio hair-card">
@@ -628,7 +603,7 @@ footer{
                 <div class="cantidad">Desde 12 €</div>
             </div>
             <div class="precio hair-card">
-                <div class="nombre">Aplicación de tinte<small>Según largo de cabello</small></div>
+                <div class="nombre">Aplicación de tinte<small>Según largo del cabello</small></div>
                 <div class="cantidad">Desde 20 €</div>
             </div>
             <div class="precio hair-card">
